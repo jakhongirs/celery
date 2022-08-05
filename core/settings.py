@@ -26,10 +26,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'drf_yasg',
+    # 'drf_yasg',
     'debug_toolbar',
 
-    'common'
+    'common',
+    'celeryapp'
 ]
 
 MIDDLEWARE = [
@@ -135,6 +136,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
+
+# CELERY CONFIG:
+CELERY_BROKER_URL = 'redis://localhost:6379'
 
 try:
     from .local_settings import *  # noqa
